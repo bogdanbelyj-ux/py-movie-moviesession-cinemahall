@@ -32,13 +32,13 @@ def get_movie_session_by_id(
 
 def update_movie_session(
         session_id: int,
-        show_time: Optional[str] = None,
+        show_time: datetime.datetime = None,
         movie_id: int = None,
         cinema_hall_id: int = None
 ) -> MovieSession:
     moviesession = MovieSession.objects.get(id=session_id)
     if show_time:
-        moviesession.show_time = datetime.datetime.fromisoformat(show_time)
+        moviesession.show_time = show_time
     if movie_id:
         moviesession.movie_id = movie_id
     if cinema_hall_id:
